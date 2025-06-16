@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Calendar With JS</title>
+</head>
+<body>
+
+  <div class="calendar-box">
+    <div class="calendar-header" id="day"></div>
+    <div class="calendar-body">
+      <div class="day" id="month"></div>
+      <div class="date" id="date"></div>
+      <div class="year" id="year"></div>
+    </div>
+  </div>
+
+  <script>
+    const today = new Date();
+
+    const day = String(today.getDate()).padStart(2, '0');
+    const monthIndex = today.getMonth();
+    const year = today.getFullYear();
+    const weekdayIndex = today.getDay();
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"];
+
+    const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    // Injecting values into the HTML
+    document.getElementById("day").innerText = dayNames[weekdayIndex];
+    document.getElementById("date").innerText = day;
+    document.getElementById("month").innerText = monthNames[monthIndex];
+    document.getElementById("year").innerText = year;
+  </script>
+
+</body>
+</html>
